@@ -1,0 +1,89 @@
+{
+  "project_info": {
+    "project_number": "1091134526615",
+    "firebase_url": "https://avian-compiler-269816.firebaseio.com",
+    "project_id": "avian-compiler-269816",
+    "storage_bucket": "avian-compiler-269816.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091134526615:android:62ab315d43f49625da85d2",
+        "android_client_info": {
+          "package_name": "com.sessentaservices.conductor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091134526615-c29n8n6013955v9b9v7ik4bjpqnmau2p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqT9FGbT9lClpKdN7J5oARTGbX9BerY9Q"
+        },
+        {
+          "current_key": "AIzaSyC53LKi0-O1EB_V1aYchzbGQHXxu-CKY9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091134526615-3bj15m6domu1iipv0ert2kjopdbrk4u2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1091134526615-6tmtibjc5snj1o6tcrhsmhik99ohkqmi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oladriver.kiosk"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091134526615:android:21f93e3564395e03da85d2",
+        "android_client_info": {
+          "package_name": "com.sessentaservices.usuarios"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091134526615-c29n8n6013955v9b9v7ik4bjpqnmau2p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqT9FGbT9lClpKdN7J5oARTGbX9BerY9Q"
+        },
+        {
+          "current_key": "AIzaSyC53LKi0-O1EB_V1aYchzbGQHXxu-CKY9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091134526615-3bj15m6domu1iipv0ert2kjopdbrk4u2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1091134526615-6tmtibjc5snj1o6tcrhsmhik99ohkqmi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oladriver.kiosk"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -34,7 +33,6 @@ import com.model.ServiceModule;
 import com.service.handler.ApiHandler;
 import com.service.server.ServerTask;
 import com.utils.CommonUtilities;
-import com.utils.Logger;
 import com.utils.Utils;
 import com.view.GenerateAlertBox;
 import com.view.MTextView;
@@ -87,8 +85,7 @@ public class LauncherActivity extends ParentActivity implements ProviderInstalle
             checkConfigurations();
         }
 
-        if (!generalFunc.getMemberId().equalsIgnoreCase("")
-                && generalFunc.getJsonValueStr(Utils.UBERX_PARENT_CAT_ID, obj_userProfile).equalsIgnoreCase("0")) {
+        if (!generalFunc.getMemberId().equalsIgnoreCase("")) {
             if (generalFunc.isDeliverOnlyEnabled()) {
                 new GetHomeScreenData().getHomeScreenDeliverAllData(this, generalFunc, obj_userProfile);
             } else {
@@ -232,12 +229,13 @@ public class LauncherActivity extends ParentActivity implements ProviderInstalle
             finish();
             return;
         }
+        generalFunc.storeData(Utils.LANGUAGE_CODE_KEY, generalFunc.retrieveValue("vDefaultLang"));
         MyApp.getInstance().updateLangForAllServiceType(generalFunc, responseString);
 
         if (generalFunc.isDeliverOnlyEnabled()) {
 
             generalFunc.storeData(Utils.USER_PROFILE_JSON, responseString);
-            new GetHomeScreenData().getHomeScreenDeliverAllData(this, generalFunc, obj_userProfile);
+            new GetHomeScreenData().getHomeScreenDeliverAllData(getActContext(), generalFunc, obj_userProfile);
 
             GeneralFunctions.clearAndResetLanguageLabelsData(MyApp.getInstance().getApplicationContext());
 
@@ -266,6 +264,13 @@ public class LauncherActivity extends ParentActivity implements ProviderInstalle
 
                 //new ActUtils(getActContext()).startActWithData(ServiceHomeActivity.class, bn);
                 new ActUtils(getActContext()).startActWithData(UberXHomeActivity.class, bn);
+            } else {
+                //new ActUtils(getActContext()).startAct(FoodDeliveryHomeActivity.class);
+                Bundle bn = new Bundle();
+                bn.putBoolean("isfoodOnly", true);
+                bn.putString("iCompanyId", generalFunc.getJsonValue("STORE_ID", responseString));
+                bn.putString("ispriceshow", generalFunc.getJsonValue("ispriceshow", responseString));
+                new ActUtils(getActContext()).startActWithData(ServiceHomeActivity.class, bn);
 
             }
         } else {
@@ -284,7 +289,10 @@ public class LauncherActivity extends ParentActivity implements ProviderInstalle
     private void storeImportantData(String responseString) {
         generalFunc.storeData("TSITE_DB", generalFunc.getJsonValue("TSITE_DB", responseString));
         generalFunc.storeData("GOOGLE_API_REPLACEMENT_URL", generalFunc.getJsonValue("GOOGLE_API_REPLACEMENT_URL", responseString));
-        generalFunc.storeData("APP_LAUNCH_IMAGES", generalFunc.getJsonValue("APP_LAUNCH_IMAGES", responseString));
+        if (!MyApp.isLogout){
+            generalFunc.storeData("APP_LAUNCH_IMAGES", generalFunc.getJsonValue("APP_LAUNCH_IMAGES", responseString));
+        }
+        MyApp.isLogout = false;
     }
 
     private void autoLogin() {
@@ -445,6 +453,12 @@ public class LauncherActivity extends ParentActivity implements ProviderInstalle
                 }
 
             } else {
+                Bundle bn = new Bundle();
+                bn.putBoolean("isfoodOnly", true);
+                bn.putString("iCompanyId", generalFunc.getJsonValue("STORE_ID", message));
+                bn.putString("ispriceshow", generalFunc.getJsonValue("ispriceshow", message));
+
+                new ActUtils(getActContext()).startActWithData(ServiceHomeActivity.class, bn);
                 // new ActUtils(getActContext()).startAct(FoodDeliveryHomeActivity.class);
                 try {
                     ActivityCompat.finishAffinity(LauncherActivity.this);
@@ -652,8 +666,16 @@ public class LauncherActivity extends ParentActivity implements ProviderInstalle
 
     @Override
     public void onDownload(File file) {
-        MyApp.getInstance().writeToFile(AESEnDecryption.getInstance().decrypt(AESEnDecryption.getInstance().fetchKeyAndIVAnData(MyApp.getInstance().readFromFile(file))), this);
-        continueDownloadGeneralData(MyApp.getInstance().readFromFile(this));
+        String decryptStr = AESEnDecryption.getInstance().decrypt(AESEnDecryption.getInstance().fetchKeyAndIVAnData(MyApp.getInstance().readFromFile(file)));
+        if (Utils.checkText(decryptStr)) {
+            MyApp.getInstance().writeToFile(decryptStr, this);
+            setBucketData(MyApp.getInstance().readFromFile(this));
+        } else {
+            onDownloadError("");
+        }
+    }
+    private void setBucketData(String strBucketData) {
+        continueDownloadGeneralData(strBucketData);
         manageConfigData();
     }
 

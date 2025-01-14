@@ -4,20 +4,20 @@
     <color name="light_transparent">#16000000</color>
 
     <!-- Theme configuration -->
-    <color name="appThemeColor_1">#FF7506</color> <!--used for bg-->
+    <color name="appThemeColor_1">#FF7505</color> <!--used for bg-->
     <!--used for bg-->
-    <color name="appThemeColor_Light_1">#FF7506</color>8445af
-    <color name="appThemeColor_Light_2">#FF7506</color>a063ca
+    <color name="appThemeColor_Light_1">#FF7505</color>8445af
+    <color name="appThemeColor_Light_2">#FF7505</color>a063ca
     <color name="appThemeColor_Light_3">#C3790A</color> <!--used  5d2a80 for bg-->
 
-    <color name="appThemeColor_Dark_1">#FF7506</color> <!--used for Border OR Others-->
-    <color name="appThemeColor_hover_1">#FF7506</color> <!--used for hover-->
+    <color name="appThemeColor_Dark_1">#FF7505</color> <!--used for Border OR Others-->
+    <color name="appThemeColor_hover_1">#FF7505</color> <!--used for hover-->
     <color name="appThemeColor_TXT_1">#FFFFFF</color> <!--used for text color-->
     <color name="appThemeColor_bg_parent_1">@android:color/transparent</color>
-    <color name="appThemeColor_Full_Light">#FF7506</color> <!--used for bg-->
+    <color name="appThemeColor_Full_Light">#FF7505</color> <!--used for bg-->
 
-    <color name="appThemeColor_2">#FF7506</color> <!--used for bg-->
-    <color name="appThemeColor_hover_2">#FF7506</color> <!--used for hover-->
+    <color name="appThemeColor_2">#FF7505</color> <!--used for bg-->
+    <color name="appThemeColor_hover_2">#FF7505</color> <!--used for hover-->
     <color name="appThemeColor_TXT_2">#FFFFFF</color> <!--used for text color-->
     <!--used for parent bg color if applies-->
 
@@ -25,7 +25,7 @@
     <color name="bt_text_blue">#D38208</color>
 
     <!-- Theme configuration End-->
-    <color name="green_1">#FF7506</color>
+    <color name="green_1">#FF7505</color>
     <color name="bt_previous">#800000</color>
     <color name="bt_next">#007AFF</color>
 
@@ -48,8 +48,8 @@
     <color name="destAddressTxt">#333333</color>
 
 
-    <color name="lightchatbtncolor">#FF7506</color> <!-- add 98 before app theme color 1-->
-    <color name="calender_selectedcolor">#FF7506</color>
+    <color name="lightchatbtncolor">#FF7505</color> <!-- add 98 before app theme color 1-->
+    <color name="calender_selectedcolor">#FF7505</color>
     <color name="background_show_case">#E9249656</color>  <!-- add E9 before app theme color 1-->
 
     <color name="btnnavtripselcolor">@color/appThemeColor_1</color>
@@ -132,7 +132,7 @@
     <color name="Red">#cc0000</color>
     <color name="ratingfill">#fbb100</color>
 
-    <color name="selectedColor">#FF7506</color> <!-- add 25 before app theme color 1-->
+    <color name="selectedColor">#FF7505</color> <!-- add 25 before app theme color 1-->
 
     <color name="simpletooltip_background">@color/white</color>
     <color name="simpletooltip_text">#2b87f0</color>

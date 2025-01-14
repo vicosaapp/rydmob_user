@@ -4303,4 +4303,16 @@ public class CabSelectionFragment extends BaseFragment implements CabTypeAdapter
     private GeoMapLoader.GeoMap getMap() {
         return mainAct.getMap();
     }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mainAct = (MainActivity) getActivity();
+    }
+
+    private void getUserProfileJson(String userProfileJson) {
+        if (mainAct != null) {
+            mainAct.obj_userProfile = generalFunc.getJsonObject(userProfileJson);
+        }
+    }
 }
